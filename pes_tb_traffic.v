@@ -7,7 +7,7 @@
 //`include "counter_define.h"
 module pes_tb_traffic;
 // 4. Parameter definitions
-parameter ENDTIME  = 400000;
+parameter ENDTIME  = 1000;
 // 5. DUT Input regs
 //integer count, count1, a;
 reg clk;
@@ -19,7 +19,7 @@ wire [2:0] light_highway;
 
 // fpga4student.com FPGA projects, VHDL projects, Verilog projects
 // 7. DUT Instantiation
-traffic_light tb(light_highway, light_farm, sensor, clk, rst_n);
+pes_traffic tb(light_highway, light_farm, sensor, clk, rst_n);
 
 // 8. Initial Conditions
 initial
@@ -93,5 +93,9 @@ task endsimulation;
  $finish;
  end
 endtask
+  
+   initial begin 
+    $dumpfile("dump.vcd"); $dumpvars;
+  end
     
 endmodule
