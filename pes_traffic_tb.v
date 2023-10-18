@@ -1,5 +1,4 @@
-// fpga4student.com FPGA projects, VHDL projects, Verilog project
-// Verilog project: Verilog code for traffic light controller
+// Test Bench file for traffic light Controller
 `timescale 10 ns/ 1 ps
 // 2. Preprocessor Directives
 `define DELAY 1
@@ -17,7 +16,6 @@ wire [2:0] light_farm;
 // 6. DUT Output wires
 wire [2:0] light_highway;
 
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
 // 7. DUT Instantiation
 pes_traffic tb(light_highway, light_farm, sensor, clk, rst_n);
 
@@ -59,7 +57,6 @@ task reset_gen;
  end
 endtask
 
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
 task operation_flow;
  begin
  sensor = 0;
@@ -84,7 +81,7 @@ task debug_output;
  end
 endtask
 
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
+
 //12. Determines the simulation limit
 task endsimulation;
  begin
@@ -94,8 +91,4 @@ task endsimulation;
  end
 endtask
   
-   initial begin 
-    $dumpfile("dump.vcd"); $dumpvars;
-  end
-    
 endmodule
