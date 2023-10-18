@@ -2,10 +2,7 @@
 
 ## Traffic Light Controller : RTL to GDS
 
-<details>
-<summary>Introduction to Design </summary>
-<br>
-   
+  
 ### Introduction
 
 Designing a Traffic Light Controller using Verilog is a fascinating and practical application of digital design and hardware description languages. 
@@ -22,7 +19,6 @@ multiple directions of traffic
 
 ### State Diagram of the design
 
-</details>
 <details>
 <summary>Tools Used and Installation  </summary>
 <br>
