@@ -1,5 +1,5 @@
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
-// Verilog project: Verilog code for traffic light controller
+//Design File for traffic light controller
+
 module pes_traffic(light_highway, light_farm, C, clk, rst_n);
 parameter HGRE_FRED=2'b00, // Highway green and farm red
    HYEL_FRED = 2'b01,// Highway yellow and farm red
@@ -9,7 +9,7 @@ input C, // sensor
    clk, // clock = 50 MHz
    rst_n; // reset active low
 output reg[2:0] light_highway, light_farm; // output of lights
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
+  
 reg[27:0] count=0,count_delay=0;
 reg delay10s=0, delay3s1=0,delay3s2=0,RED_count_en=0,YELLOW_count_en1=0,YELLOW_count_en2=0;
 wire clk_enable; // clock enable signal for 1s
@@ -70,7 +70,6 @@ end
 default: next_state = HGRE_FRED;
 endcase
 end
-// fpga4student.com FPGA projects, VHDL projects, Verilog projects
 // create red and yellow delay counts
 always @(posedge clk)
 begin
@@ -115,4 +114,4 @@ begin
   count <= 0;
 end
  assign clk_enable = count==3 ? 1: 0; // 50,000,000 for 50MHz running on FPGA
-endmodule 
+endmodule
