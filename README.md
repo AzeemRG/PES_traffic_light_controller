@@ -18,6 +18,7 @@ multiple directions of traffic
 
 
 ### State Diagram of the design
+Will be updated
 
 <details>
 <summary>Tools Used and Installation  </summary>
