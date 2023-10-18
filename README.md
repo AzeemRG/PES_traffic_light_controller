@@ -2,7 +2,12 @@
 
 ## Traffic Light Controller : RTL to GDS
 
+<details>
+<summary>Introduction to Design </summary>
+<br>
+   
 ### Introduction
+
 Designing a Traffic Light Controller using Verilog is a fascinating and practical application of digital design and hardware description languages. 
 
 Traffic light controllers are vital components of modern urban infrastructure, ensuring the smooth and safe flow of traffic at intersections.
@@ -17,7 +22,36 @@ multiple directions of traffic
 
 ### State Diagram of the design
 
-### Tools Used and Installation
+</details>
+<details>
+<summary>Tools Used and Installation  </summary>
+<br>
+   
+
+##### Iverilog:
+
+  ``` 
+   sudo apt-get update
+   sudo apt-get install iverilog
+
+```
+
+##### Yosys:
+
+   ```
+   git clone https://github.com/YosysHQ/yosys.git
+   sudo apt install make
+   sudo apt-get install build-essential clang bison flex \
+   libreadline-dev gawk tcl-dev libffi-dev git \
+   graphviz xdot pkg-config python3 libboost-system-dev \
+   libboost-python-dev libboost-filesystem-dev zlib1g-dev
+   sudo make install
+```
+
+</details>
+<details>
+<summary>Pre Simulation of design </summary>
+<br>
 
 ### Simulation using iverilog 
 
@@ -46,7 +80,12 @@ Output Waveform:
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/6a30bb0a-ce5d-4c35-a4a6-8bba21e8bd5a)
 
 
-### Synthesis using GLS and Simulation 
+</details>
+<details>
+<summary>Synthesis Using GLS  </summary>
+<br>
+   
+### Introduction
 
 Synthesis is a critical step in the design of integrated circuits. It transforms the high-level, abstract representation of a design, known as Register-Transfer Level (RTL), into a gate-level netlist. This netlist is composed of actual logic gates that are available in the specific technology libraries for the target chip.
 
@@ -109,7 +148,12 @@ Use Command ``` write_verilog -noattr pes_traffic_netlist.v ```
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/a7fd43a1-6d75-43ac-a6e6-44f7cb695658)
 
-### Simulation created netlist using iverilog (Post Simulation)
+</details>
+<details>
+<summary>Post Simulation </summary>
+<br>
+   
+### Simulation created netlist using iverilog 
 
 Use command 
 ```
@@ -124,10 +168,16 @@ Final Post Simulation Output Waveform:
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/b77690d9-77fc-4d30-a851-1f1db854bd24)
 
-
-# Referrence Repo
+</details>
+<details>
+<summary>Referrence Repos </summary>
+<br>
 
 https://github.com/AzeemRG/asic_special_topic
+
+Also Checkout for Physical Design Using OpenLane
+
+https://github.com/AzeemRG/Pes_Openlane_pd
 
 
 
