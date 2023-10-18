@@ -125,6 +125,9 @@ Final Post Simulation Output Waveform:
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/b77690d9-77fc-4d30-a851-1f1db854bd24)
 
 
+# Referrence Repo
+
+https://github.com/AzeemRG/asic_special_topic
 
 
 
