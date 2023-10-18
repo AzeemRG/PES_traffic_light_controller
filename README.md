@@ -109,7 +109,7 @@ Use Command ``` write_verilog -noattr pes_traffic_netlist.v ```
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/a7fd43a1-6d75-43ac-a6e6-44f7cb695658)
 
-### Simulation created netlist using iverilog
+### Simulation created netlist using iverilog (Post Simulation)
 
 Use command 
 ```
