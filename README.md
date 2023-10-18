@@ -46,7 +46,7 @@ Output Waveform:
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/6a30bb0a-ce5d-4c35-a4a6-8bba21e8bd5a)
 
 
-### Synthesis using GLS
+### Synthesis using GLS and Simulation 
 
 Synthesis is a critical step in the design of integrated circuits. It transforms the high-level, abstract representation of a design, known as Register-Transfer Level (RTL), into a gate-level netlist. This netlist is composed of actual logic gates that are available in the specific technology libraries for the target chip.
 
@@ -58,35 +58,69 @@ The synthesis process unfolds in several stages:
 
    Optimizing the Netlist: After mapping, optimization comes into play. The goal is to enhance the netlist by making it more efficient, but without violating any constraints set by the designer. This optimization can involve minimizing gate count, reducing power consumption, and improving performance.
 
-Invoking Yosys and reading design file
+#### Synthesis using GLS of our design 
+
+Invoking Yosys , reading the skywater130 pdk library and reading the design file 
+
+Use command
+
+```
+yosys
+read_liberty -lib /home/azeem/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog pes_traffic.v
+``` 
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/8b1359df-05ae-49e9-9d84-ce8651a7b0aa)
 
-Synthesis
+Synthesis: 
+
+for synthesis use command ``` synth -top pes_traffic ``` 
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/76ecd4e9-cc0c-4185-a993-8d95e581ec09)
 
-Printing Stata
+Printing Stat:
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/cf4c391e-2dba-4bda-ad90-f8f36ab14523)
 
-ABC
+ABC: 
+
+To run ABC use command ``` abc -liberty /home/azeem/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib ```
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/d2bd53e3-1937-458f-a949-9d0d9eb2d58b)
 
-ABC results
+ABC results:
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/d6f3fdf5-5c7c-41c2-81bd-956912432c71)
 
 
-RTL 
+Layout :
+
+Use command ``` show ``` to get Layout 
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/5cdeb55d-8f14-4315-8565-1d2990a1a3da)
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/fc56ff2b-7529-4717-849f-1661d5f0443c)
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/851c1612-1326-4ec7-812c-95d74eac16ec)
 
-Netlist 
+Netlist :
+
+Use Command ``` write_verilog -noattr pes_traffic_netlist.v ```
+
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/a7fd43a1-6d75-43ac-a6e6-44f7cb695658)
 
-### Simulation using GLS of created netlist
+### Simulation created netlist using iverilog
+
+Use command 
+```
+iverilog /home/azeem/VLSI/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/primitives.v /home/azeem/VLSI/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/sky130_fd_sc_hd.v pes_traffic_netlist.v pes_tb_traffic.v
+./a.out
+gtkwave dump.vcd
+```
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/e1db5423-4200-4d0d-a16f-2df010838e80)
+
+Final Post Simulation Output Waveform:
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/b77690d9-77fc-4d30-a851-1f1db854bd24)
 
