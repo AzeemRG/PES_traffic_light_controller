@@ -17,8 +17,14 @@ multiple directions of traffic
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/6d5a2633-e26a-449b-bb1a-0992e6ad0c84)
 
 
-### State Diagram of the design
-Will be updated
+### State Diagram of the design using Intel Quartus Prime Lite
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/84c48ffb-a1f3-4c6f-8714-1e3b2eaa1538)
+
+### RTL of the design using Intel Quartus Prime Lite
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/e1b3c00f-7442-486d-8af2-6218ccfcd69e)
+
 
 <details>
 <summary>Tools Used and Installation  </summary>
