@@ -176,7 +176,7 @@ Final Post Simulation Output Waveform:
 <summary>Conclusions </summary> </summary>
 <br>
 
-As we can see Pre and Post Simulation Results match , so we can confirm there is GLS mismatch
+As we can see Pre and Post Simulation Results match , so we can confirm there is no GLS mismatch
 
 Results:
 
