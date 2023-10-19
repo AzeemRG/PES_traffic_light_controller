@@ -176,14 +176,13 @@ Final Post Simulation Output Waveform:
 <summary>Conclusions </summary> </summary>
 <br>
 
-As we can see Pre and Post Simulation Results match , so we can confirm there is no GLS mismatch
+As we can see Pre and Post Simulation Results match , so we can confirm there is no GLS mismatch. We can Go ahead with PD development 
 
 Results:
 
-![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/d2a09fb1-c0b3-4d48-918f-21388b31d72f)
-
-
-
+Total Number of Cells : 
+Total Number of Input Signals :
+Total Number of Output Signals : 
 
 
 
