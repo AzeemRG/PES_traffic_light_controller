@@ -180,9 +180,10 @@ As we can see Pre and Post Simulation Results match , so we can confirm there is
 
 Results:
 
-Total Number of Cells : 
-Total Number of Input Signals :
-Total Number of Output Signals : 
+- Total Number of Cells : 292 
+- Total Number of Input Signals : 62
+- Total Number of Output Signals : 71 
+- Total Number of Internal Signals : 160 
 
 
 
