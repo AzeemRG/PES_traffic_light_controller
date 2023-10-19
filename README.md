@@ -173,6 +173,22 @@ Final Post Simulation Output Waveform:
 
 </details>
 <details>
+<summary>Conclusions </summary> </summary>
+<br>
+
+As we can see Pre and Post Simulation Results match , so we can confirm there is GLS mismatch
+
+Results:
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/d2a09fb1-c0b3-4d48-918f-21388b31d72f)
+
+
+
+
+
+
+</details>
+<details>
 <summary>Referrence Repos </summary>
 <br>
 
