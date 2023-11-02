@@ -215,4 +215,217 @@ https://github.com/AzeemRG/Pes_Openlane_pd
   <summary>Physical Design using OpenLane</summary>
     <br>
 
+# Introduction to OpenLane 
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/74df30d0-f050-4ca7-ab17-d4f7da9df9c7)
+
+OpenLane is an open-source, automated digital ASIC (Application-Specific Integrated Circuit) design flow framework. It plays a pivotal role in simplifying and streamlining the process of designing custom integrated circuits, making it more accessible to a wider range of engineers and designers.
+
+Here is the basic OpenLane Design Flow
+
+RTL Design
+
+Synthesis
+
+Floor Planning
+
+Placement and Routing
+
+Clock Tree Synthesis
+
+Power Planning
+
+Physical Verification
+
+GDSII Generation
+
+Manufacturing
+
+Testing
+
+Packaging
+
+Deployment
+
+
+<details>
+<summary>Complete Installation </summary>
+<br>
+
+## Docker Installation
+
+## OpenLane Installation
+
+## Magic Installation 
+
+
+</details>
+<details>
+<summary> Getting Started </summary>
+<br>
+
+Launching OpenLane
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/98cbd04d-a047-456d-b006-b293424b7092)
+
+Before getting started make sure to to create your design folder 
+
+```
+    cd OpenLane\designs
+    mkdir pes_traffic
+    cd pes_traffic
+    mkdir src
+```
+Add ur verilog file inside and outside of src folder 
+
+Create config.json file using ``` gedit config.json ```  and add inside and outside of the src folder 
+
+Note : Also make sure to add pdk file..  in my case its skywater130 pdk 
+
+Config file should look like this
+
+```
+
+{
+    "DESIGN_NAME": "pes_traffic",
+    "VERILOG_FILES": "dir::src/pes_traffic.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 5,
+    "PL_RANDOM_GLB_PLACEMENT": 1,
+    "PL_TARGET_DENSITY": 0.5,
+    "FP_SIZING" : "relative",
+
+"LIB_SYNTH": "dir::src/sky130_fd_sc_hd__typical.lib",
+"LIB_FASTEST": "dir::src/sky130_fd_sc_hd__fast.lib",
+"LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__slow.lib",
+"LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__typical.lib",
+"TEST_EXTERNAL_GLOB": "dir::../pes_ic/src/*",
+"SYNTH_DRIVING_CELL":"sky130_vsdinv",
+
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 5,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 2
+        }
+    }
+
+    
+
+}
+
+```
+
+To undergo interactive flow use command 
+
+```
+ .\flow.tcl -interactive
+package require openlane 0.9
+prep -design <UR_DESIGN_NAME>
+```
+
+
+
+</details>
+<details>
+<summary> Synthesis </summary>
+<br>
+
+use command ```run_synthesis``` to initiate it 
+
+ ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/3a57352a-eaaf-49dd-b7c4-18e6c29dd39c)
+
+to see the report or printing stats to go the following path 
+
+``` /home/azeem/OpenLane/designs/pes_traffic/runs/RUN_Direct/reports ``` in that go to synthesis and check the report 
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/d23ba5d5-9b13-407b-bb8e-a888a8aab10f)
+
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/f9be828d-2a62-454c-90c3-88a11f831cd7)
+
+We can see info about cells and area of chip module through this step and get intresting factors like flop ratio or cell ratio etc 
+
+</details>
+<details>
+<summary> Floorplan </summary>
+<br>
+
+use command ```run_floorplan``` to initiate it 
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/04c69744-9469-48af-9b32-c705a44e8ec0)
+
+to see the floorplan layout go the path ``` cd  /home/azeem/OpenLane/designs/pes_traffic/runs/RUN_2023.11.02_19.46.32/results/floorplan ```
+
+Use magic tool to see the layout using the .def file created during the process
+
+``` magic -T /home/azeem/OpenLane/pdk/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def pes_traffic.def & ```
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/e59be8d9-602c-43ac-9ade-ea473cce7230)
+
+
+</details>
+<details>
+<summary> Placement </summary>
+<br>
+
+use command ``` run_placement``` 
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/220a0105-586f-4391-8700-79eda3824db9)
+
+use magic tool to see the layout by going to path same path but this time its placement `` ......results/placements
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/4b69d7b4-f3b8-4db5-8640-99fd96e0f3da)
+
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/c49ee4de-0725-49f5-af33-a4fe8ed2f557)
+
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/77b395cb-9ba8-4e1e-8aa4-f23e66f1a672)
+
+
+</details>
+<details>
+<summary> CTS </summary>
+<br>
+
+use command ```run_cts ```
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/3f7e199a-f9e8-4e6b-b6d1-d5aef6ee0235)
+
+to see the slack reports go the log folder using path 
+```
+/home/azeem/OpenLane/designs/pes_traffic/runs/RUN_2023.11.02_19.46.32/logs/cts
+
+in that open 12-cts_sta.log
+
+```
+we can see slack is meet and there skew in under control 
+
+ ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/37ced2f4-bf90-4bc2-bd78-efdaf42e596a)
+
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/da9e94f2-9a70-4ef8-89de-f0ac2da53c04)
+
+Note : log file is added for more information 
+
+
+/details>
+<details>
+<summary> Routing </summary>
+<br>
+
+use command ``` run_routing ``` 
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/a845c542-d89c-483d-9ab6-870729acaa12)
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/4a8c96d3-e3b1-460e-9b4d-1462de34aa63)
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/63687bbb-a2de-4086-a407-14052cf293a2)
+
+
+
+
+
 
