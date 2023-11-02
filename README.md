@@ -1,6 +1,6 @@
 # pes_traffic
 
-## Traffic Light Controller : RTL to GDS
+## Traffic Light Controller : RTL to GDS and Physical Design using OpenLane 
 
   
 ### Introduction
@@ -24,6 +24,12 @@ multiple directions of traffic
 ### RTL of the design using Intel Quartus Prime Lite
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/e1b3c00f-7442-486d-8af2-6218ccfcd69e)
+
+
+
+<details>
+  <summary>RTL to GDS using Yosys and iverilog</summary>
+    <br>
 
 
 <details>
@@ -200,5 +206,13 @@ https://github.com/AzeemRG/Pes_Openlane_pd
 
 
 
+
+</details>
+
+</details>
+
+<details>
+  <summary>Physical Design using OpenLane</summary>
+    <br>
 
 
