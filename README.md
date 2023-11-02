@@ -431,6 +431,21 @@ use command ``` run_routing ```
 <summary> Non-interactive flow </summary>
 <br>
 
+Use below commands 
+```
+cd Openlane
+make mount
+./flow.tcl -design <UR_DESIGN_NAME>
+```
+
+
+DRC Check after ending of entire flow
+
+![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/6f537f3c-6bcb-4ac9-8bb2-3a77867fa3bd)
+
+
+
+
 
 
 
