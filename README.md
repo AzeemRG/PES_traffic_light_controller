@@ -612,7 +612,16 @@ DRC Check after ending of entire flow
 
 ![image](https://github.com/AzeemRG/pes_traffic/assets/128957056/6f537f3c-6bcb-4ac9-8bb2-3a77867fa3bd)
 
+</details>
+<details>
+<summary> Results and Report</summary>
+<br>
 
+- Number of cells: 262
+- Chip area for module '\pes_traffic': 3072.947200
+- Design area 6783 u^2 4% utilization.
+- report_worst_slack -max (Setup) : 0.43
+- report_worst_slack -min (Hold) : 0.27
 
 
 
