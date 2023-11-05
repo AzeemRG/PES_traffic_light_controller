@@ -194,20 +194,6 @@ Results:
 
 
 </details>
-<details>
-<summary>Referrence Repos </summary>
-<br>
-
-https://github.com/AzeemRG/asic_special_topic
-
-Also Checkout for Physical Design Using OpenLane
-
-https://github.com/AzeemRG/Pes_Openlane_pd
-
-
-
-
-</details>
 
 </details>
 
@@ -623,6 +609,25 @@ DRC Check after ending of entire flow
 - report_worst_slack -max (Setup) : 0.43
 - report_worst_slack -min (Hold) : 0.27
 
+</details>
+
+</details>
+
+<details>
+  <summary> Reference Reps </summary>
+    <br>
+
+RTL to GDS Repo
+
+https://github.com/AzeemRG/asic_special_topic
+
+Also Checkout for Physical Design Using OpenLane
+
+https://github.com/AzeemRG/Pes_Openlane_pd
+
+Repo by efabless
+
+https://github.com/efabless/openlane2
 
 
 
