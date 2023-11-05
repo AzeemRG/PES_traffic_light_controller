@@ -565,6 +565,48 @@ make mount
 ./flow.tcl -design <UR_DESIGN_NAME>
 ```
 
+#### Steps involved in flow 
+
+
+- Running Synthesis: This step involves synthesizing the RTL (Register Transfer Level) code to generate a gate-level netlist.
+- Running Single-Corner Static Timing Analysis: A static timing analysis is performed at a single process corner to ensure that the design meets its timing constraints.
+- Running Initial Floorplanning, Setting Core Dimensions: Initial floorplanning involves defining the rough placement and dimensions of the core area of the chip.
+- Running IO Placement: This step involves placing the input and output pads of the chip.
+- Running Power planning with power {VPWR} and ground {VGND}: Power planning is essential for distributing power and ground connections effectively throughout the chip.
+- Generating PDN: This generates the Power Distribution Network for ensuring proper power delivery.
+- Performing Random Global Placement: Initial placement of standard cells is done randomly.
+- Running Placement Resizer Design Optimizations: Optimization techniques are applied to improve the placement of standard cells.
+- Writing Verilog: Generate a new Verilog file after placement optimizations.
+- Running Detailed Placement: A more refined placement of cells is performed.
+- Running Placement Resizer Timing Optimizations: Timing-specific optimizations are applied to the placement.
+- Writing Verilog, Routing: Generate a new Verilog file after routing optimizations.
+- Running Global Routing Resizer Timing Optimizations: Further timing optimizations are applied to the routing.
+- Writing Verilog: Generate a new Verilog file after routing.
+- Running Detailed Placement: Re-run placement after global routing.
+- Running Global Routing, Starting FastRoute Antenna Repair Iterations: Global routing of the design is done, and antenna repair iterations are initiated to fix potential antenna effects.
+- Running Fill Insertion: Inserting filler cells to meet design requirements.
+- Writing Verilog: Generate a new Verilog file after fill insertion.
+- Running Detailed Routing, No DRC violations after detailed routing: Detailed routing of the design is performed, and DRC (Design Rule Check) violations are checked and corrected.
+= Writing Verilog, Running parasitics-based static timing analysis: Generate a new Verilog file and run a static timing analysis with consideration for parasitic capacitance and resistance.
+- Running SPEF Extraction at the min process corner: Extraction of parasitic information at the minimum process corner.
+= Running Multi-Corner Static Timing Analysis at the min process corner: Perform static timing analysis considering multiple process corners.
+- Running SPEF Extraction at the max process corner: Extraction of parasitic information at the maximum process corner.
+- Running Multi-Corner Static Timing Analysis at the max process corner: Perform static timing analysis considering multiple process corners.
+- Running SPEF Extraction at the nom process corner: Extraction of parasitic information at the nominal process corner.
+- Running Single-Corner Static Timing Analysis at the nom process corner: Static timing analysis at the nominal process corner.
+- Running Multi-Corner Static Timing Analysis at the nom process corner: Perform static timing analysis considering multiple corners at the nominal process corner.
+- Running Magic to generate various views, Streaming out GDS-II with Magic, Generating MAGLEF views: Generate different views and output the final GDS-II layout file for the chip.
+- Streaming out GDS-II with Klayout: Output the GDS-II layout file using the Klayout tool.
+- Running XOR on the layouts using Klayout: Perform XOR operation on layouts to check for any differences.
+- Running Magic Spice Export from LEF: This step involves exporting Spice netlists from the Layout Exchange Format (LEF) files. These netlists are essential for simulating and verifying the functionality of the chip.
+- Writing Powered Verilog: Generate a new Verilog file that incorporates information about power consumption and other relevant power-related details.
+- Writing Verilog: Another step of generating a Verilog file, possibly after incorporating power-related information.
+- Running LEF LVS: Performing Layout vs. Schematic (LVS) checks using the Layout Exchange Format (LEF) data to ensure that the layout matches the intended schematic.
+- Running Magic DRC, Converting Magic DRC Violations to Magic Readable Format, Converting Magic DRC Violations to Klayout Database, Converting DRC Violations to RDB Format, No DRC violations after GDS streaming out, Running Antenna Checks: In this step, Design Rule Checks (DRC) are performed using the Magic tool. Any DRC violations are detected, and the results may be converted to different formats for further analysis or reporting. Additionally, antenna checks are run to identify and mitigate potential issues with charge accumulation.
+- Running OpenROAD Antenna Rule Checker: This step involves running the OpenROAD Antenna Rule Checker to further ensure that the chip design is free from antenna effects, which can lead to unexpected issues during chip operation.
+- Running CVC, Saving final set of views, Saving runtime environment, Generating final set of reports, Created manufacturability report: In this final step, Chip Verification Continuum (CVC) is run to verify the chip's functionality and compliance with design rules. Various views and reports are saved, including a manufacturability report. This report summarizes the results of the chip design process, indicating whether it's ready for manufacturing.
+
+
 
 DRC Check after ending of entire flow
 
